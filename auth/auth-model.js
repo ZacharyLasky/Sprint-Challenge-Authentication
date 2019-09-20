@@ -18,5 +18,3 @@ function add(user) {
   return db('users')
     .insert(user)
 }
-
-
