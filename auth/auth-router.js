@@ -5,6 +5,7 @@ const restricted = require('./authenticate-middleware')
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken")
 
+// REGISTER
 router.post('/register', (req, res) => {
   const user = req.body;
   const hash = bcrypt.hashSync(user.password, 10); 
@@ -19,6 +20,7 @@ router.post('/register', (req, res) => {
     });
 });
 
+// LOGIN
 router.post('/login', (req, res) => {
   let { username, password } = req.body;
 
@@ -39,6 +41,7 @@ router.post('/login', (req, res) => {
     });
 });
 
+// GET all users
 router.get('/', restricted, (req, res) => {
   Users.find()
     .then(users => {
@@ -49,6 +52,7 @@ router.get('/', restricted, (req, res) => {
     })
 });
 
+// generate token function
 function generateToken(user) {
   const payload = {
     username: user.username
