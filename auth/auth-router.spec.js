@@ -5,8 +5,8 @@ const server = require("../api/server")
 describe('auth-router.js', () => {
   describe('POST /register', () => {
     let user = {
-      username: "zach22",
-      password: "pass22"
+      username: "zach23",
+      password: "pass23"
     }
     it('returns 201 - created', () => {
       return request(server)
@@ -53,5 +53,19 @@ describe('auth-router.js', () => {
         });
     });
 
+  });
+});
+
+// TEST for GET users
+describe('auth-router.js', () => {
+  describe('GET /', () => {
+    it('is returns a JSON Object', () => {
+      return request(server)
+        .get('/api/auth')
+        // .send(user)
+        .then(res => {
+          expect(res.type).toMatch(/json/i)
+        });
+    });
   });
 });
