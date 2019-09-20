@@ -40,11 +40,19 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] What is the purpose of using _sessions_?
 
+Sessions allows you to store data for a specific user  inside of a database. You can set the session to timeout after a specified period of time.
+
 - [ ] What does bcrypt do to help us store passwords in a secure manner.
+
+Bcrypt allows us to hash passwords, meaning to scramble a password into a disguised string (Web Token). Bcrypt also includes methods that allow us to compare an entered password to a user’s correct password they entered upon registration. 
 
 - [ ] What does bcrypt do to slow down attackers?
 
+Becrypt has a “Key Factor” that can be adjusted to slow down the speed at which it hashes. 
+
 - [ ] What are the three parts of the JSON Web Token?
+
+The three parts of a JSON Web Token are the header, payload, and verify-signature.
 
 ## Minimum Viable Product
 
