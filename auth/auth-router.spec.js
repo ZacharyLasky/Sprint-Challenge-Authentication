@@ -5,8 +5,8 @@ const server = require("../api/server")
 describe('auth-router.js', () => {
   describe('POST /register', () => {
     let user = {
-      username: "zach23",
-      password: "pass23"
+      username: "zach25",
+      password: "pass25"
     }
     it('returns 201 - created', () => {
       return request(server)
@@ -32,8 +32,8 @@ describe('auth-router.js', () => {
 describe('auth-router.js', () => {
   describe('POST /login', () => {
     let user = {
-      username: "zach21",
-      password: "pass21"
+      username: "zach25",
+      password: "pass25"
     }
     it('returns 200 - ok', () => {
       return request(server)
@@ -52,7 +52,6 @@ describe('auth-router.js', () => {
           expect(res.type).toMatch(/json/i)
         });
     });
-
   });
 });
 

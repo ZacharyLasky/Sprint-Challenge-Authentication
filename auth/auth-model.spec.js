@@ -2,7 +2,7 @@ const model = require("./auth-model")
 const db = require("../database/dbConfig")
 
 
-// Test 1 and 2 for auth-model ADD users
+// Test for auth-model ADD users
 describe("user model", () => {
   beforeEach(async () => {
     await db('users').truncate()
