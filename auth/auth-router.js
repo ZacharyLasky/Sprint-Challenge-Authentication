@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Users = require('./auth-model')
+const restricted = require('./authenticate-middleware')
 
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken")
@@ -36,6 +37,16 @@ router.post('/login', (req, res) => {
     .catch(error => {
       res.status(500).json(error);
     });
+});
+
+router.get('/', restricted, (req, res) => {
+  Users.find()
+    .then(users => {
+      res.json(users);
+    })
+    .catch(error => {
+      res.status(500).json(error)
+    })
 });
 
 function generateToken(user) {
