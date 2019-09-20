@@ -5,8 +5,8 @@ const server = require("../api/server")
 describe('auth-router.js', () => {
   describe('POST /register', () => {
     let user = {
-      username: "zach20",
-      password: "pass20"
+      username: "zach22",
+      password: "pass22"
     }
     it('returns 201 - created', () => {
       return request(server)
@@ -28,20 +28,30 @@ describe('auth-router.js', () => {
   });
 });
 
-// describe('router.js', () => {
-//   describe('POST /register', () => {
-//     let user = {
-//       username: "zach",
-//       password: "pass1"
-//     }
-//     it('returns 200 ok & toMatch json', () => {
-//       return request(server)
-//         .post('/api/login')
-//         .send(user)
-//         .then(res => {
-//           expect(res.status).toBe(200);
-//           expect(res.type).toMatch(/json/i)
-//         });
-//     });
-//   });
-// });
+// TEST 1 and 2 for Login
+describe('auth-router.js', () => {
+  describe('POST /login', () => {
+    let user = {
+      username: "zach21",
+      password: "pass21"
+    }
+    it('returns 200 - ok', () => {
+      return request(server)
+        .post('/api/auth/login')
+        .send(user)
+        .then(res => {
+          expect(res.status).toBe(200);
+        });
+    });
+
+    it('is a JSON Object', () => {
+      return request(server)
+        .post('/api/auth/login')
+        .send(user)
+        .then(res => {
+          expect(res.type).toMatch(/json/i)
+        });
+    });
+
+  });
+});
